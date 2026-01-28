@@ -1,0 +1,67 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Gerenciamento de Veículos</h1>
+
+  <div class="card p-4 mb-5 shadow-sm">
+    <h4>Novo Veículo</h4>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <label>Placa</label>
+        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.placa" placeholder="ABC-1234">
+      </div>
+      <div class="col-md-4">
+        <label>Modelo</label>
+        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.modelo" placeholder="Ex: Civic">
+      </div>
+      <div class="col-md-4">
+        <label>Marca</label>
+        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.marca" placeholder="Ex: Honda">
+      </div>
+      <div class="col-md-4">
+        <label>Ano</label>
+        <input type="number" class="form-control" [(ngModel)]="novoVeiculo.ano">
+      </div>
+      <div class="col-md-4">
+        <label>Chassi</label>
+        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.chassi">
+      </div>
+      <div class="col-md-4">
+        <label>Renavam</label>
+        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.renavam">
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary w-100" (click)="salvarVeiculo()">Adicionar Veículo</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card p-4 shadow-sm">
+    <h4>Lista de Veículos</h4>
+    <table class="table table-striped table-hover mt-3">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Placa</th>
+          <th>Modelo</th>
+          <th>Marca</th>
+          <th>Ano</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let v of veiculos">
+          <td>{{ v.id }}</td>
+          <td>{{ v.placa }}</td>
+          <td>{{ v.modelo }}</td>
+          <td>{{ v.marca }}</td>
+          <td>{{ v.ano }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="deletarVeiculo(v.id)">Excluir</button>
+          </td>
+        </tr>
+        <tr *ngIf="veiculos.length === 0">
+          <td colspan="6" class="text-center">Nenhum veículo cadastrado.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
