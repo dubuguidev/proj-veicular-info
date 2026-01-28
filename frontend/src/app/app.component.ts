@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Importante para o formulário
+import { FormsModule } from '@angular/forms'; 
 import { VeiculoService } from './services/veiculo.service';
 import { Veiculo } from './models/veiculo.model';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule], // Importante para funcionar o HTML
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   veiculos: Veiculo[] = [];
   
-  // Objeto para novo veículo
   novoVeiculo: Veiculo = {
     placa: '', chassi: '', renavam: '', modelo: '', marca: '', ano: 2024
   };
@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
       next: () => {
         alert('Veículo salvo!');
         this.carregarVeiculos();
-        // Limpar formulário
         this.novoVeiculo = { placa: '', chassi: '', renavam: '', modelo: '', marca: '', ano: 2024 };
       },
       error: (e) => alert('Erro ao salvar')
