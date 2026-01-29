@@ -1,0 +1,14 @@
+.card {
+  border-radius: 12px;
+  border: none;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
