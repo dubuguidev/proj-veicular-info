@@ -1,14 +1,182 @@
+/* =========================
+   CARDS
+========================= */
+
 .card {
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
   border: none;
-  transition: 0.2s ease;
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.table {
+h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+
+/* =========================
+   IN PUTS
+========================= */
+
+.form-control {
   border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  padding: 10px 14px;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+
+/* =========================
+   BO TÕES
+========================= */
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+}
+
+.btn-danger {
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.btn-danger:hover {
+  transform: scale(1.05);
+}
+
+.btn-info {
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.btn-info:hover {
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   TABELA
+========================= */
+
+.table {
+  background: white;
+  border-radius: 16px;
   overflow: hidden;
+}
+
+.table thead {
+  background: #0f172a;
+  color: white;
+  font-weight: 500;
+}
+
+.table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background: #f1f5f9;
+  transform: scale(1.01);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.app-header {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  margin-bottom: 40px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h2 {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.tech-badge {
+  background: #6366f1;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   CARDZINHOS
+========================= */
+
+.stats-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.stats-card h3 {
+  font-size: 32px;
+  margin: 0;
+  color: #4f46e5;
+}
+
+
+/* =========================
+   EXPANSÃO DE DOMINIO!
+========================= */
+
+.detail-row {
+  background-color: #f8f9fa;
+}
+
+.detail-box {
+  padding: 15px;
+  border-left: 4px solid #0d6efd;
+  background: #ffffff;
+  border-radius: 8px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
 }

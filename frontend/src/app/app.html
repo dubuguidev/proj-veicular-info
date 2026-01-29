@@ -1,52 +1,84 @@
-<div class="container mt-5">
-  <h1 class="text-center mb-4">Gerenciamento de Veículos</h1>
+<header class="app-header">
+  <div class="header-content">
+    <h2>Gerenciador de Veículos Info Tecnologia</h2>
+    <span class="tech-badge">Angular 17 • Standalone</span>
+  </div>
+</header>
 
-  <div class="card p-4 mb-5 shadow-sm">
+<div class="container">
+
+  <!-- Estatística -->
+  <div class="stats-card">
+    <h3>{{ veiculos.length }}</h3>
+    <p>Total de Veículos Cadastrados</p>
+  </div>
+
+  <!-- Formulário -->
+  <div class="card p-4 mb-5">
     <h4>Novo Veículo</h4>
+
     <div class="row g-3">
+
       <div class="col-md-4">
-        <label>Placa</label>
-        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.placa" placeholder="ABC-1234">
+        <label class="form-label">Placa</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="novoVeiculo.placa"
+               placeholder="ABC-1234">
       </div>
 
       <div class="col-md-4">
-        <label>Modelo</label>
-        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.modelo">
+        <label class="form-label">Modelo</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="novoVeiculo.modelo">
       </div>
 
       <div class="col-md-4">
-        <label>Marca</label>
-        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.marca">
+        <label class="form-label">Marca</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="novoVeiculo.marca">
       </div>
 
       <div class="col-md-4">
-        <label>Ano</label>
-        <input type="number" class="form-control" [(ngModel)]="novoVeiculo.ano">
+        <label class="form-label">Ano</label>
+        <input type="number"
+               class="form-control"
+               [(ngModel)]="novoVeiculo.ano">
       </div>
 
       <div class="col-md-4">
-        <label>Chassi</label>
-        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.chassi">
+        <label class="form-label">Chassi</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="novoVeiculo.chassi">
       </div>
 
       <div class="col-md-4">
-        <label>Renavam</label>
-        <input type="text" class="form-control" [(ngModel)]="novoVeiculo.renavam">
+        <label class="form-label">Renavam</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="novoVeiculo.renavam">
       </div>
 
       <div class="col-12">
-        <button class="btn btn-primary w-100" (click)="salvarVeiculo()">
-          Adicionar Veículo
-        </button>
+        <button class="btn btn-primary w-100"
+        (click)="salvarVeiculo()">
+           Adicionar Veículo
+      </button>
+
       </div>
+
     </div>
   </div>
 
-  <div class="card p-4 shadow-sm">
+  <!-- Lista -->
+  <div class="card p-4">
     <h4>Lista de Veículos</h4>
 
-    <table class="table table-striped table-hover mt-3">
-      <thead class="table-dark">
+    <table class="table table-hover mt-3" *ngIf="veiculos.length > 0">
+      <thead>
         <tr>
           <th>ID</th>
           <th>Placa</th>
@@ -56,27 +88,61 @@
           <th>Ações</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let v of veiculos">
-          <td>{{ v.id }}</td>
-          <td>{{ v.placa }}</td>
-          <td>{{ v.modelo }}</td>
-          <td>{{ v.marca }}</td>
-          <td>{{ v.ano }}</td>
-          <td>
-            <button class="btn btn-danger btn-sm"
-                    (click)="deletarVeiculo(v.id)">
-              Excluir
-            </button>
-          </td>
-        </tr>
 
-        <tr *ngIf="veiculos.length === 0">
-          <td colspan="6" class="text-center">
-            Nenhum veículo cadastrado.
-          </td>
-        </tr>
-      </tbody>
+      <tbody>
+
+  <ng-container *ngFor="let v of veiculos">
+
+    <tr>
+      <td>{{ v.id }}</td>
+      <td>{{ v.placa }}</td>
+      <td>{{ v.modelo }}</td>
+      <td>{{ v.marca }}</td>
+      <td>{{ v.ano }}</td>
+      <td class="d-flex gap-2">
+
+        <button class="btn btn-info btn-sm"
+                (click)="toggleInfo(v.id)">
+          Info
+        </button>
+
+        <button class="btn btn-danger btn-sm"
+                (click)="deletarVeiculo(v.id)">
+          Excluir
+        </button>
+
+      </td>
+    </tr>
+
+    <tr *ngIf="veiculoSelecionadoId === v.id" class="detail-row">
+      <td colspan="6">
+        <div class="detail-box">
+          <strong>Chassi:</strong> {{ v.chassi }} <br>
+          <strong>Renavam:</strong> {{ v.renavam }}
+        </div>
+      </td>
+    </tr>
+
+  </ng-container>
+
+  <tr *ngIf="veiculos.length === 0">
+    <td colspan="6" class="text-center">
+      Nenhum veículo cadastrado.
+    </td>
+  </tr>
+
+</tbody>
+
     </table>
+
+    <!-- Empty State Profissional -->
+    <div class="empty-state" *ngIf="veiculos.length === 0">
+      <div class="empty-icon">🚗</div>
+      <p>Nenhum veículo cadastrado ainda.</p>
+      <small>Adicione um veículo usando o formulário acima.</small>
+    </div>
+
   </div>
+
 </div>
+

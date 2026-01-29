@@ -26,8 +26,6 @@ const saveData = (data) => {
     fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
 };
 
-// CRUD (4)
-
 // READ (Listar todos)
 app.get('/veiculos', (req, res) => {
     const vehicles = readData();
