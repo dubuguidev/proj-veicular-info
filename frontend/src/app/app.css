@@ -180,3 +180,20 @@ h4 {
   from { opacity: 0; transform: translateY(-3px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Footer moderno */
+.app-footer {
+  margin-top: 60px;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
