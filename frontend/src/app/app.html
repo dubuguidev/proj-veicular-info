@@ -31,38 +31,47 @@
         <label class="form-label">Modelo</label>
         <input type="text"
                class="form-control"
-               [(ngModel)]="novoVeiculo.modelo">
+               [(ngModel)]="novoVeiculo.modelo"
+               placeholder="Especifique um modelo veicular">
       </div>
 
       <div class="col-md-4">
         <label class="form-label">Marca</label>
         <input type="text"
                class="form-control"
-               [(ngModel)]="novoVeiculo.marca">
+               [(ngModel)]="novoVeiculo.marca"
+               placeholder="Especifique uma marca">
       </div>
 
       <div class="col-md-4">
         <label class="form-label">Ano</label>
         <input type="number"
                class="form-control"
-               [(ngModel)]="novoVeiculo.ano">
+               [(ngModel)]="novoVeiculo.ano"
+               placeholder="Exp: 1512">
       </div>
 
       <div class="col-md-4">
         <label class="form-label">Chassi</label>
         <input type="text"
                class="form-control"
-               [(ngModel)]="novoVeiculo.chassi">
+               [(ngModel)]="novoVeiculo.chassi"
+               placeholder="É um código único que identifica o veículo">
       </div>
 
       <div class="col-md-4">
         <label class="form-label">Renavam</label>
         <input type="text"
                class="form-control"
-               [(ngModel)]="novoVeiculo.renavam">
+               [(ngModel)]="novoVeiculo.renavam"
+               placeholder="Registro Nacional de Veículos Automotores">
       </div>
 
       <div class="col-12">
+
+         <div *ngIf="erroFormulario" class="alert alert-danger mt-3">
+          Todos os campos devem ser preenchidos!
+        </div>
         <button class="btn btn-primary w-100"
         (click)="salvarVeiculo()">
            Adicionar Veículo

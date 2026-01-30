@@ -25,6 +25,8 @@ export class App {
 
   veiculoSelecionadoId: number | null = null;
 
+  erroFormulario = false; 
+
   novoVeiculo: Omit<Veiculo, 'id'> = {
     placa: '',
     modelo: '',
@@ -36,9 +38,14 @@ export class App {
 
   salvarVeiculo() {
 
-    if (!this.novoVeiculo.placa || !this.novoVeiculo.modelo) {
+    const { placa, modelo, marca, ano, chassi, renavam } = this.novoVeiculo;
+
+    if (!placa || !modelo || !marca || !ano || !chassi || !renavam) {
+      this.erroFormulario = true;
       return;
     }
+
+    this.erroFormulario = false;
 
     const novo: Veiculo = {
       id: Date.now(),
@@ -72,5 +79,7 @@ export class App {
       chassi: '',
       renavam: ''
     };
+
+    this.erroFormulario = false;
   }
 }
